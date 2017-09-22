@@ -1,0 +1,24 @@
+{
+  "name": "socketserver1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamohvalovGMcR/Socket_server1.git"
+  },
+  "author": "Samohwalov Dmitriy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SamohvalovGMcR/Socket_server1/issues"
+  },
+  "homepage": "https://github.com/SamohvalovGMcR/Socket_server1#readme",
+  "dependencies": {
+    "morgan": "^1.8.2",
+    "nconf": "^0.8.4",
+    "socket.io": "^1.7.3"
+  }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+	<meta charset="utf-8">
+  </head>
+
+  <body>
+   <div  id="" style="width:80%;  height:80px; border: 2px solid green; text-align:center;">
+     
+  <script src="http://192.168.1.102:3000/socket.io/socket.io.js"></script>
+    
+    
+   Пока беспратный сервис 
+  <div>
+    <input id="str1" name="d" type="text" maxlength="30" size="33" placeholder="строка">_
+    <input id="url1" type="url" name="m" maxlength="1000" size="33" placeholder="http://"><button id="send">send</button>
+    
+  </div>
+  
+  
+  </div>
+ <br><br><input id="del1" name="dl" type="text" placeholder="del"><button id="del">del</button>
+    <button id="delall">delall</button> 
+<script>
+var socket = io.connect('http://192.168.1.102:3000');
+
+
+socket.on('whuN', function () {
+   socket.emit("whuS");
+});
+
+
+socket.on('whu', function (value) {
+  in2.innerHTML ="";
+ for ( var key in value){
+  var divp = document.createElement('p');
+  divp.innerHTML =key+" "+value[key];//no admin-//
+  divp.onclick=function() {
+//alert("click "+value[key]);
+window.open([]+value[key]);
+  };
+  in2.appendChild(divp);
+ }//for 
+ 
+});
+
+send.onclick=function() {
+if(url1.value.slice(0,7)==="http://"||url1.value.slice(0,8)==="https://") {  
+socket.emit("addB",([str1.value, url1.value]));
+str1.value=""; 
+url1.value="";
+}else {alert("no url")};
+};
+
+del.onclick=function() {
+socket.emit("delB",(del1.value));
+del1.value="";
+};
+
+delall.onclick=function() {
+socket.emit("delAll","");
+};
+
+</script>
+
+ 
+
+<div  id="in2" style=" border: 2px solid red; padding:5px">
+  </div>
+  </body>
+
+</html>
