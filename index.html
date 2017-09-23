@@ -32,20 +32,21 @@ socket.on('whuN', function () {
    socket.emit("whuS");
 });
 
-
 socket.on('whu', function (value) {
   in2.innerHTML ="";
  for ( var key in value){
-  var divp = document.createElement('p');
-  divp.innerHTML =key+" "+value[key];//no admin-//
-  divp.onclick=function() {
+  var divp = document.createElement('a');
+  divp.innerHTML =key+"<br> ";//no admin-//+value[key]
+  
 //alert("click "+value[key]);
-window.open([]+value[key]);
-  };
-  in2.appendChild(divp);
+
+ divp.target="_blank";
+ divp.href=[]+value[key];
+ in2.appendChild(divp);
  }//for 
  
 });
+
 
 send.onclick=function() {
 if(url1.value.slice(0,7)==="http://"||url1.value.slice(0,8)==="https://") {  
