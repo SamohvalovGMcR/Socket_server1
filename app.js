@@ -1,7 +1,7 @@
 "use strict";
 var config = require('./config');
 var path = require('path');
-var logger = require('morgan');
+//var logger = require('morgan');
 var http = require('http');
 
 var server = http.createServer().listen(config.get('port'),config.get('ip'), function(){
